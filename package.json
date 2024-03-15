@@ -1,6 +1,6 @@
 {
     "name": "@diia-inhouse/validators",
-    "version": "1.13.1",
+    "version": "1.13.2",
     "description": "Data validators package",
     "main": "dist/index.js",
     "types": "dist/types/index.d.ts",

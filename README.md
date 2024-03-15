@@ -26,7 +26,7 @@ This repository contains the package with data validation functionality.
 Example:
 
 ```
-git clone https://github.com/diia-open-source/pkg-validators.git
+git clone https://github.com/diia-open-source/be-pkg-validators.git pkg-validators
 ```
 
 ---
