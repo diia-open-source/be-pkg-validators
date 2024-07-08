@@ -125,32 +125,32 @@ type ComplexRule =
 type ValidationProperty<T = null> = T extends null
     ? ValidationRule
     : T extends string
-    ? StringRule | EmailRule | VersionRule | BasicRule<'uuid' | 'phoneNumber' | 'internationalPhoneNumber'>
-    : T extends number
-    ? NumberRule
-    : T extends boolean
-    ? BooleanRule
-    : T extends Date
-    ? DateRule | CustomDateRule | StringRule
-    : T extends Buffer
-    ? BasicRule<'buffer'>
-    : T extends ObjectId
-    ? ObjectIdRule | StringRule
-    : T extends ArrayLike<infer U>
-    ? ArrayRule<U>
-    : T extends object
-    ? ObjectRule<T> | RecordRule<keyof T, Required<T>[keyof T]>
-    : ValidationRule
+      ? StringRule | EmailRule | VersionRule | BasicRule<'uuid' | 'phoneNumber' | 'internationalPhoneNumber'>
+      : T extends number
+        ? NumberRule
+        : T extends boolean
+          ? BooleanRule
+          : T extends Date
+            ? DateRule | CustomDateRule | StringRule
+            : T extends Buffer
+              ? BasicRule<'buffer'>
+              : T extends ObjectId
+                ? ObjectIdRule | StringRule
+                : T extends ArrayLike<infer U>
+                  ? ArrayRule<U>
+                  : T extends object
+                    ? ObjectRule<T> | RecordRule<keyof T, Required<T>[keyof T]>
+                    : ValidationRule
 
 type Rule = string | boolean | ComplexRule | CommonRule | BasicRule<Exclude<RuleType, CommonRule['type'] | ComplexRule['type']>>
 
 export type ValidationRule<T = null> = T extends null
     ? Rule
     : T extends object
-    ? ObjectRule<T>
-    : T extends ArrayLike<infer U>
-    ? ArrayRule<U>
-    : Rule
+      ? ObjectRule<T>
+      : T extends ArrayLike<infer U>
+        ? ArrayRule<U>
+        : Rule
 
 export type ValidationSchema<T = null> = T extends null
     ? { [path: string]: ValidationRule | ValidationRule[] }

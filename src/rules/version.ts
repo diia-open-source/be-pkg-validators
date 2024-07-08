@@ -2,7 +2,7 @@ import Fastest, { MessagesType, ValidationSchema } from 'fastest-validator'
 
 import { Rule, RuleValidator } from '../interfaces/rule'
 
-const PATTERN = /^v\d{1,}$/
+const PATTERN = /^v\d+$/
 
 /**
  * @deprecated
@@ -30,7 +30,7 @@ export class VersionValidationRule implements Rule {
                 }
             `)
 
-            if (Array.isArray(schema.versions) && schema.versions.length) {
+            if (Array.isArray(schema.versions) && schema.versions.length > 0) {
                 const { versions } = schema
 
                 src.push(`

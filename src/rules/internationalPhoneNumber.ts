@@ -3,7 +3,7 @@ import Fastest from 'fastest-validator'
 import { Rule, RuleValidator } from '../interfaces/rule'
 
 export class InternationalPhoneNumberValidationRule implements Rule {
-    private checkPattern = /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/g
+    private checkPattern = /^\+?\d{1,4}?[\s.-]?\(?\d{1,3}?\)?(?:[\s.-]?\d{1,4}){2}[\s.-]?\d{1,9}$/g
 
     getName(): string {
         return 'internationalPhoneNumber'

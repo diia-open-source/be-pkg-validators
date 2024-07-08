@@ -2,7 +2,7 @@ import Fastest, { MessagesType } from 'fastest-validator'
 
 import { Rule, RuleValidator } from '../interfaces/rule'
 
-const PATTERN = /^[0-9a-fA-F]{24}$/
+const PATTERN = /^[\da-f]{24}$/i
 
 export class ObjectIdValidationRule implements Rule {
     getName(): string {

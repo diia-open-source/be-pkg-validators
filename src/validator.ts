@@ -43,16 +43,16 @@ export class AppValidator {
     private getCustomValidatorsMessages(): Record<string, string> {
         const res: Record<string, string> = {}
 
-        this.customRules.forEach((rule: Rule) => {
+        for (const rule of this.customRules) {
             res[rule.getName()] = rule.getMessage()
-        })
+        }
 
         return res
     }
 
     private addCustomValidationRules(): void {
-        this.customRules.forEach((rule: Rule) => {
+        for (const rule of this.customRules) {
             this.validator.add(rule.getName(), rule.getRule(this.validator))
-        })
+        }
     }
 }

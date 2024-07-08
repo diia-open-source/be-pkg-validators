@@ -1,6 +1,6 @@
 {
     "name": "@diia-inhouse/validators",
-    "version": "1.13.2",
+    "version": "1.17.0",
     "description": "Data validators package",
     "main": "dist/index.js",
     "types": "dist/types/index.d.ts",
@@ -34,22 +34,23 @@
     },
     "peerDependencies": {
         "@diia-inhouse/errors": ">=1.0.0",
-        "@diia-inhouse/types": ">=5.0.1"
+        "@diia-inhouse/types": ">=2.5.0"
     },
     "devDependencies": {
         "@commitlint/cli": "17.5.0",
-        "@diia-inhouse/configs": "^1.27.1",
-        "@diia-inhouse/errors": "^1.6.1",
-        "@diia-inhouse/eslint-config": "^3.5.0",
-        "@diia-inhouse/types": "^5.0.1",
+        "@diia-inhouse/configs": "1.31.1",
+        "@diia-inhouse/errors": "1.9.0",
+        "@diia-inhouse/eslint-config": "5.1.0",
+        "@diia-inhouse/types": "6.24.0",
         "@types/lodash.frompairs": "4.0.9",
         "@types/node": "20.3.1",
         "jest": "29.7.0",
         "jest-junit": "16.0.0",
         "lockfile-lint": "4.10.1",
-        "madge": "6.0.0",
+        "madge": "7.0.0",
         "protobufjs": "7.2.5",
-        "semantic-release": "^21.1.2"
+        "rimraf": "5.0.7",
+        "semantic-release": "21.1.2"
     },
     "release": {
         "extends": "@diia-inhouse/configs/dist/semantic-release/package",

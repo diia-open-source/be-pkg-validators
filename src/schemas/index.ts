@@ -31,25 +31,25 @@ export const phoneNumberValidation: ParameterValidation = {
 }
 
 export const emailValidation: ParameterValidation = {
-    regexp: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$',
+    regexp: '^([a-zA-Z0-9_%+-]{1,}.{0,1}){0,}[a-zA-Z0-9_%+-]{1,}@([a-zA-Z0-9_%+-]{1,}.{0,1}){1,}[A-Za-z]{2,64}$',
     flags: ['i'],
     errorMessage: 'Упс, ви ввели неправильний email. Виправте дані або спробуйте іншу пошту.',
 }
 
 export const emailRuValidation: ParameterValidation = {
-    regexp: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.(ru|su)$',
+    regexp: '^([a-zA-Z0-9_%+-]{1,}.{0,1}){0,}[a-zA-Z0-9_%+-]{1,}@([a-zA-Z0-9_%+-]{1,}.{0,1}){1,}(?!ru|su)[A-Za-z]{2,64}$',
     flags: ['i'],
     errorMessage: 'Йой, це ж електронна адреса з російським доменом. Ми не можемо її прийняти. Спробуйте іншу скриньку, будь ласка.',
 }
 
 export const shortTextValidation: ParameterValidation = {
-    regexp: '^([a-z]|[а-яґєії]|\\d|-|—|/|\\s){1,10}$',
+    regexp: String.raw`^([a-z]|[а-яґєії]|\d|-|—|/|\s){1,10}$`,
     flags: ['i'],
     errorMessage: 'Введіть номер до 10 знаків, не використовуйте спецсимволи, окрім «-, /»',
 }
 
 export const zipValidation: ParameterValidation = {
-    regexp: '^\\d{5}$',
+    regexp: String.raw`^\d{5}$`,
     flags: [],
     errorMessage: 'Введіть індекс з 5 цифр',
 }

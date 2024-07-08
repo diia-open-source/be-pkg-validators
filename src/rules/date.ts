@@ -3,7 +3,7 @@ import Fastest from 'fastest-validator'
 import { Rule, RuleValidator } from '../interfaces/rule'
 
 export class DateValidationRule implements Rule {
-    constructor(private readonly checkPattern: RegExp = /\d{2}\.\d{2}\.\d{4}/) {}
+    constructor(private readonly checkPattern = /(?:\d{2}\.){2}\d{4}/) {}
 
     getName(): string {
         return 'customDate'
