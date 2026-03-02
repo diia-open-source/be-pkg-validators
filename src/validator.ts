@@ -1,6 +1,6 @@
 import FastestValidator, { ValidationSchema } from 'fastest-validator'
 
-import { ErrorCode, ValidationError, ValidationErrorField } from '@diia-inhouse/errors'
+import { ErrorCode, ErrorType, ValidationError, ValidationErrorField } from '@diia-inhouse/errors'
 
 import { Rule } from './interfaces/rule'
 import { BufferValidationRule, DateValidationRule, ObjectIdValidationRule, PhoneNumberValidationRule, VersionValidationRule } from './rules'
@@ -21,7 +21,7 @@ export class AppValidator {
             new VersionValidationRule(),
         ]
 
-        this.validator = new FastestValidator({ messages: this.getCustomValidatorsMessages() })
+        this.validator = new FastestValidator({ messages: this.getCustomValidatorsMessages(), useNewCustomCheckerFunction: true })
 
         this.addCustomValidationRules()
     }
@@ -30,11 +30,11 @@ export class AppValidator {
         return (params: unknown): boolean => this.validate(params, schema)
     }
 
-    validate(params: unknown, schema: ValidationSchema): boolean {
-        const res = <true | ValidationErrorField[]>this.validator.validate(<Record<string, unknown>>params, schema)
+    validate(params: unknown, schema: ValidationSchema, errorType?: ErrorType): boolean {
+        const res = this.validator.validate(params as Record<string, unknown>, schema) as true | ValidationErrorField[]
 
         if (res !== true) {
-            throw new ValidationError(res, ErrorCode.ValidationError)
+            throw new ValidationError(res, ErrorCode.ValidationError, errorType)
         }
 
         return true

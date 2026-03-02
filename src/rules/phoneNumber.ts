@@ -7,7 +7,8 @@ export class PhoneNumberValidationRule implements Rule {
     private checkPattern: RegExp
 
     constructor() {
-        this.checkPattern = new RegExp(`^38(${availableMobileCodes.map((code) => `0${code}`).join('|')})\\d{7}$`)
+        // eslint-disable-next-line security/detect-non-literal-regexp
+        this.checkPattern = new RegExp(String.raw`^38(${availableMobileCodes.map((code) => `0${code}`).join('|')})\d{7}$`) // nosemgrep: eslint.detect-non-literal-regexp
     }
 
     getName(): string {

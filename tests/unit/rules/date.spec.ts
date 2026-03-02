@@ -22,7 +22,7 @@ describe('dateValidationRule', () => {
 
         it.each([new Date().toLocaleString()])('test valid date', async (customDate) => {
             expect(compiledRule({ customDate })).toBeTruthy()
-        }) //
+        })
 
         it.each([1, 'string', false, new Date('foo').toLocaleString()])('test invalid date %s', (customDate) => {
             expect(compiledRule({ customDate })).toEqual([

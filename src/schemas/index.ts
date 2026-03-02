@@ -1,9 +1,9 @@
 import fromPairs from 'lodash.frompairs'
+import { DateTime } from 'luxon'
 
 import { AppVersions, PlatformType } from '@diia-inhouse/types'
 
-import { ListValidationSchema, ObjectRule } from '../interfaces'
-import { ParameterValidation } from '../interfaces/schema'
+import { CheckerFunctionError, ListValidationSchema, ObjectRule, ParameterValidation, StringRule } from '../interfaces'
 
 export const availableMobileCodes: string[] = [
     '39',
@@ -13,6 +13,7 @@ export const availableMobileCodes: string[] = [
     '67',
     '68',
     '73',
+    '77',
     '91',
     '92',
     '93',
@@ -22,22 +23,30 @@ export const availableMobileCodes: string[] = [
     '97',
     '98',
     '99',
+    '75',
+    '77,',
 ]
 
 export const phoneNumberValidation: ParameterValidation = {
-    regexp: `^\\+380(${availableMobileCodes.join('|')})\\d{7}$`,
+    regexp: String.raw`^\+380(${availableMobileCodes.join('|')})\d{7}$`,
     flags: ['i', 'g'],
     errorMessage: 'Упс, ви ввели неправильний номер телефону. Використовуйте формат + 38 (0ХХ) ХХХ ХХ ХХ.',
 }
 
+export const phoneNumberWithoutPlusValidation: ParameterValidation = {
+    regexp: String.raw`^380(${availableMobileCodes.join('|')})\d{7}$`,
+    flags: ['i', 'g'],
+    errorMessage: 'Упс, ви ввели неправильний номер телефону. Використовуйте формат 38 (0ХХ) ХХХ ХХ ХХ.',
+}
+
 export const emailValidation: ParameterValidation = {
-    regexp: '^([a-zA-Z0-9_%+-]{1,}.{0,1}){0,}[a-zA-Z0-9_%+-]{1,}@([a-zA-Z0-9_%+-]{1,}.{0,1}){1,}[A-Za-z]{2,64}$',
+    regexp: String.raw`^([a-zA-Z0-9_%+-]{1,}\.){0,}[a-zA-Z0-9_%+-]{1,}@([a-zA-Z0-9_%+-]{1,}\.){1,}[A-Za-z]{2,64}$`,
     flags: ['i'],
     errorMessage: 'Упс, ви ввели неправильний email. Виправте дані або спробуйте іншу пошту.',
 }
 
 export const emailRuValidation: ParameterValidation = {
-    regexp: '^([a-zA-Z0-9_%+-]{1,}.{0,1}){0,}[a-zA-Z0-9_%+-]{1,}@([a-zA-Z0-9_%+-]{1,}.{0,1}){1,}(?!ru|su)[A-Za-z]{2,64}$',
+    regexp: String.raw`^([a-zA-Z0-9_%+-]{1,}\.){0,}[a-zA-Z0-9_%+-]{1,}@([a-zA-Z0-9_%+-]{1,}\.){1,}(?!ru|su)[A-Za-z]{2,64}$`,
     flags: ['i'],
     errorMessage: 'Йой, це ж електронна адреса з російським доменом. Ми не можемо її прийняти. Спробуйте іншу скриньку, будь ласка.',
 }
@@ -92,4 +101,33 @@ export const appVersionsValidationSchema: ObjectRule<AppVersions> = {
         },
     },
     optional: true,
+}
+
+export function getStringDateSchema(format = `yyyy-MM-dd'T'HH:mm:ss.SSS'Z'`, optional = false): StringRule {
+    return {
+        type: 'string',
+        empty: false,
+        custom: (value: string, errors: CheckerFunctionError[]): string => {
+            if (optional && !value) {
+                return value
+            }
+
+            if (!optional && !value) {
+                errors.push({ type: 'string', messages: `The date is required in the ${format} format!` })
+
+                return value
+            }
+
+            const isValid = DateTime.fromFormat(value, format).isValid
+
+            if (!isValid) {
+                errors.push({ type: 'string', messages: `The date must be a valid date string ${format} format!` })
+
+                return value
+            }
+
+            return value
+        },
+        optional,
+    }
 }

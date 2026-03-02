@@ -21,14 +21,14 @@ export class VersionValidationRule implements Rule {
          * Signature: function(value, field, parent, errors, context)
          */
         return ({ schema, messages }: { schema: ValidationSchema; messages: MessagesType }): { source: string } => {
-            const src: string[] = []
-
-            src.push(`
+            const src: string[] = [
+                `
                 if (typeof value !== 'string') {
                     ${validator.makeError({ type: 'string', actual: 'value', messages })}
                     return value;
                 }
-            `)
+            `,
+            ]
 
             if (Array.isArray(schema.versions) && schema.versions.length > 0) {
                 const { versions } = schema

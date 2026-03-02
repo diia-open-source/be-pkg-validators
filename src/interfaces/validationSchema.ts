@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ObjectId } from 'bson'
+import { Context, ValidationRuleObject } from 'fastest-validator'
 
 export type RuleType =
     | 'any'
@@ -21,6 +22,12 @@ export type RuleType =
     | 'internationalPhoneNumber'
     | 'buffer'
     | 'record'
+
+export interface CheckerFunctionError {
+    type: string
+    messages: string
+    field?: string
+}
 
 interface BasicRule<T extends RuleType> {
     type: T
@@ -60,7 +67,7 @@ export interface ObjectRule<T = null> extends BasicRule<'object'> {
 }
 
 export interface RecordRule<K, V> extends BasicRule<'record'> {
-    key: EnumRule<K>
+    key: EnumRule<K> | StringRule
     value: ValidationProperty<V> | ValidationProperty<V>[]
 }
 
@@ -77,6 +84,14 @@ export interface StringRule extends BasicRule<'string'> {
     alphanum?: boolean
     alphadash?: boolean
     uppercase?: boolean
+    custom?: (
+        value: string,
+        errors: CheckerFunctionError[],
+        ruleSchema?: ValidationRuleObject,
+        path?: string,
+        parent?: object | null,
+        context?: Context,
+    ) => string
 }
 
 export interface EmailRule extends BasicRule<'email'> {

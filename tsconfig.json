@@ -4,6 +4,7 @@
         "outDir": "dist",
         "declaration": true,
         "declarationDir": "dist/types",
+        "skipLibCheck": true,
         "baseUrl": ".",
         "strict": true
     },
