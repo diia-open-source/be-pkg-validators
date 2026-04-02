@@ -1,6 +1,6 @@
 {
     "name": "@diia-inhouse/validators",
-    "version": "1.28.8",
+    "version": "1.28.9",
     "description": "Data validators package",
     "main": "dist/index.js",
     "types": "dist/types/index.d.ts",
@@ -37,9 +37,9 @@
     },
     "devDependencies": {
         "@diia-inhouse/configs": "6.1.1",
-        "@diia-inhouse/errors": "1.18.4",
-        "@diia-inhouse/eslint-config": "8.6.0",
-        "@diia-inhouse/test": "7.3.4",
+        "@diia-inhouse/errors": "1.18.5",
+        "@diia-inhouse/eslint-config": "8.8.0",
+        "@diia-inhouse/test": "7.3.5",
         "@diia-inhouse/types": "11.5.0",
         "@types/lodash.frompairs": "4.0.9",
         "@types/luxon": "3.7.1",
