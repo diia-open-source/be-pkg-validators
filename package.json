@@ -1,10 +1,10 @@
 {
     "name": "@diia-inhouse/validators",
-    "version": "1.28.13",
+    "version": "1.28.14",
     "description": "Data validators package",
     "main": "dist/index.js",
     "types": "dist/types/index.d.ts",
-    "repository": "https://github.com/diia-open-source/be-pkg-validators.git",
+    "repository": "https://github.com/diia-open-source/be-pkg-validators",
     "author": "Diia",
     "license": "SEE LICENCE IN LICENCE.md",
     "files": [
@@ -39,8 +39,8 @@
         "@diia-inhouse/configs": "6.1.1",
         "@diia-inhouse/errors": "1.18.9",
         "@diia-inhouse/eslint-config": "8.8.0",
-        "@diia-inhouse/test": "7.3.8",
-        "@diia-inhouse/types": "11.6.0",
+        "@diia-inhouse/test": "7.3.11",
+        "@diia-inhouse/types": "11.7.0",
         "@types/lodash.frompairs": "4.0.9",
         "@types/luxon": "3.7.1",
         "@types/node": "25.3.2",
