@@ -1,6 +1,6 @@
 import Fastest, { MessagesType } from 'fastest-validator'
 
-import { Rule, RuleValidator } from '../interfaces/rule'
+import { Rule, RuleValidator } from '../interfaces/rule.js'
 
 export class BufferValidationRule implements Rule {
     getName(): string {
@@ -15,7 +15,7 @@ export class BufferValidationRule implements Rule {
         /**
          * Signature: function(value, field, parent, errors, context)
          */
-        return ({ messages }: { messages: MessagesType }): { source: string } => {
+        return ({ messages }: { messages: MessagesType }) => {
             const source = `
                 if (!value || !(Buffer.isBuffer(value) || value.type === 'Buffer')) {
                     ${validator.makeError({ type: 'buffer', actual: 'value', messages })}

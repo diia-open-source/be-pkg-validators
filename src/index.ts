@@ -1,5 +1,5 @@
-export * from './interfaces'
+export * from './interfaces/index.js'
 
-export * from './validator'
+export * from './validator.js'
 
-export * from './schemas'
+export * from './schemas/index.js'

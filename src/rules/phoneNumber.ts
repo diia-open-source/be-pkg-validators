@@ -1,7 +1,7 @@
 import Fastest from 'fastest-validator'
 
-import { Rule, RuleValidator } from '../interfaces/rule'
-import { availableMobileCodes } from '../schemas'
+import { Rule, RuleValidator } from '../interfaces/rule.js'
+import { availableMobileCodes } from '../schemas/index.js'
 
 export class PhoneNumberValidationRule implements Rule {
     private checkPattern: RegExp
@@ -23,7 +23,7 @@ export class PhoneNumberValidationRule implements Rule {
         /**
          * Signature: function(value, field, parent, errors, context)
          */
-        return ({ messages }): { source: string } => {
+        return ({ messages }) => {
             const source = `
                 if (typeof value !== 'string' || !${this.checkPattern.toString()}.test(value)) {
                     ${validator.makeError({ type: 'phoneNumber', actual: 'value', messages })}

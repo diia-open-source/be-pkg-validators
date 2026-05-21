@@ -4,7 +4,9 @@
         "types": ["vite/client", "vitest/globals"],
         "module": "ESNext",
         "moduleResolution": "Bundler",
-        "isolatedModules": true
+        "isolatedModules": true,
+        "isolatedDeclarations": false,
+        "rootDir": "../"
     },
     "include": ["./**/*", "../vitest.config.mts"]
 }

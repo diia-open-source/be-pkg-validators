@@ -2,9 +2,15 @@ import FastestValidator, { ValidationSchema } from 'fastest-validator'
 
 import { ErrorCode, ErrorType, ValidationError, ValidationErrorField } from '@diia-inhouse/errors'
 
-import { Rule } from './interfaces/rule'
-import { BufferValidationRule, DateValidationRule, ObjectIdValidationRule, PhoneNumberValidationRule, VersionValidationRule } from './rules'
-import { InternationalPhoneNumberValidationRule } from './rules/internationalPhoneNumber'
+import { Rule } from './interfaces/rule.js'
+import {
+    BufferValidationRule,
+    DateValidationRule,
+    ObjectIdValidationRule,
+    PhoneNumberValidationRule,
+    VersionValidationRule,
+} from './rules/index.js'
+import { InternationalPhoneNumberValidationRule } from './rules/internationalPhoneNumber.js'
 
 export class AppValidator {
     private readonly validator: FastestValidator

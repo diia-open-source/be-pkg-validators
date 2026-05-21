@@ -1,6 +1,6 @@
 import Fastest, { MessagesType, ValidationSchema } from 'fastest-validator'
 
-import { Rule, RuleValidator } from '../interfaces/rule'
+import { Rule, RuleValidator } from '../interfaces/rule.js'
 
 const PATTERN = /^v\d+$/
 
@@ -20,7 +20,7 @@ export class VersionValidationRule implements Rule {
         /**
          * Signature: function(value, field, parent, errors, context)
          */
-        return ({ schema, messages }: { schema: ValidationSchema; messages: MessagesType }): { source: string } => {
+        return ({ schema, messages }: { schema: ValidationSchema; messages: MessagesType }) => {
             const src: string[] = [
                 `
                 if (typeof value !== 'string') {

@@ -1,5 +1,5 @@
-export * from './rule'
+export * from './rule.js'
 
-export * from './schema'
+export * from './schema.js'
 
-export * from './validationSchema'
+export * from './validationSchema.js'

@@ -1,6 +1,6 @@
 import Fastest, { MessagesType } from 'fastest-validator'
 
-import { Rule, RuleValidator } from '../interfaces/rule'
+import { Rule, RuleValidator } from '../interfaces/rule.js'
 
 const PATTERN = /^[\da-f]{24}$/i
 
@@ -17,7 +17,7 @@ export class ObjectIdValidationRule implements Rule {
         /**
          * Signature: function(value, field, parent, errors, context)
          */
-        return ({ messages }: { messages: MessagesType }): { source: string } => {
+        return ({ messages }: { messages: MessagesType }) => {
             const source = `
                 if (typeof value !== 'string' || !${PATTERN.toString()}.test(value)) {
                     ${validator.makeError({ type: 'objectId', actual: 'value', messages })}

@@ -1,6 +1,6 @@
 import Fastest from 'fastest-validator'
 
-import { Rule, RuleValidator } from '../interfaces/rule'
+import { Rule, RuleValidator } from '../interfaces/rule.js'
 
 export class InternationalPhoneNumberValidationRule implements Rule {
     private checkPattern = /^\+?\d{1,4}?[\s.-]?\(?\d{1,3}?\)?(?:[\s.-]?\d{1,4}){2}[\s.-]?\d{1,9}$/g
@@ -17,7 +17,7 @@ export class InternationalPhoneNumberValidationRule implements Rule {
         /**
          * Signature: function(value, field, parent, errors, context)
          */
-        return ({ messages }): { source: string } => {
+        return ({ messages }) => {
             const source = `
                 if (typeof value !== 'string' || !${this.checkPattern.toString()}.test(value)) {
                     ${validator.makeError({ type: 'internationalPhoneNumber', actual: 'value', messages })}

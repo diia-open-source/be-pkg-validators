@@ -1,11 +1,11 @@
-export * from './buffer'
+export * from './buffer.js'
 
-export * from './date'
+export * from './date.js'
 
-export * from './objectId'
+export * from './objectId.js'
 
-export * from './phoneNumber'
+export * from './phoneNumber.js'
 
-export * from './version'
+export * from './version.js'
 
-export * from './internationalPhoneNumber'
+export * from './internationalPhoneNumber.js'

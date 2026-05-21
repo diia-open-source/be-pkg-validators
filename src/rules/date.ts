@@ -1,9 +1,10 @@
 import Fastest from 'fastest-validator'
 
-import { Rule, RuleValidator } from '../interfaces/rule'
+import { Rule, RuleValidator } from '../interfaces/rule.js'
 
 export class DateValidationRule implements Rule {
-    constructor(private readonly checkPattern = /(?:\d{2}\.){2}\d{4}/) {}
+    // oxlint-disable-next-line typescript/no-inferrable-types -- isolatedDeclarations requires explicit annotation
+    constructor(private readonly checkPattern: RegExp = /(?:\d{2}\.){2}\d{4}/) {}
 
     getName(): string {
         return 'customDate'
@@ -17,7 +18,7 @@ export class DateValidationRule implements Rule {
         /**
          * Signature: function(value, field, parent, errors, context)
          */
-        return ({ schema, messages }): { sanitized: boolean; source: string } => {
+        return ({ schema, messages }) => {
             let sanitized = false
             const src: string[] = [
                 `

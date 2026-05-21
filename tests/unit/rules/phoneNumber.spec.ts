@@ -20,14 +20,14 @@ describe('phoneNumberValidationRule', () => {
         },
     })
 
-    it.each([['380' + availableMobileCodes[0] + '1234567'], ['380' + availableMobileCodes[1] + '9876543']])(
+    it.each([[`380${availableMobileCodes[0]}1234567`], [`380${availableMobileCodes[1]}9876543`]])(
         'test valid phone number %s',
         async (phoneNumber) => {
             expect(compiledRule({ phoneNumber })).toBeTruthy()
         },
     ) //
 
-    it.each([['3801111111'], ['380' + availableMobileCodes[0] + '123']])('test invalid phone number %s', (phoneNumber) => {
+    it.each([['3801111111'], [`380${availableMobileCodes[0]}123`]])('test invalid phone number %s', (phoneNumber) => {
         expect(compiledRule({ phoneNumber })).toEqual([
             {
                 type: rule.getName(),

@@ -3,7 +3,7 @@ import { DateTime } from 'luxon'
 
 import { AppVersions, PlatformType } from '@diia-inhouse/types'
 
-import { CheckerFunctionError, ListValidationSchema, ObjectRule, ParameterValidation, StringRule } from '../interfaces'
+import { CheckerFunctionError, ListValidationSchema, ObjectRule, ParameterValidation, StringRule } from '../interfaces/index.js'
 
 export const availableMobileCodes: string[] = [
     '39',
