@@ -1,6 +1,6 @@
 {
     "name": "@diia-inhouse/validators",
-    "version": "2.2.34",
+    "version": "2.2.35",
     "type": "module",
     "description": "Data validators package",
     "main": "dist/index.js",
@@ -47,8 +47,8 @@
         "@diia-inhouse/configs": "7.0.1",
         "@diia-inhouse/errors": "2.2.2",
         "@diia-inhouse/oxc-config": "2.0.0",
-        "@diia-inhouse/test": "8.2.17",
-        "@diia-inhouse/types": "14.1.1",
+        "@diia-inhouse/test": "8.2.18",
+        "@diia-inhouse/types": "14.2.0",
         "@types/lodash.frompairs": "4.0.9",
         "@types/luxon": "3.7.1",
         "@types/node": "25.6.2",
