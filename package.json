@@ -1,6 +1,6 @@
 {
     "name": "@diia-inhouse/validators",
-    "version": "2.2.80",
+    "version": "2.2.81",
     "type": "module",
     "description": "Data validators package",
     "main": "dist/index.js",
@@ -52,8 +52,8 @@
         "@types/lodash.frompairs": "4.0.9",
         "@types/luxon": "3.7.1",
         "@types/node": "25.6.2",
-        "@vitest/coverage-v8": "4.1.5",
-        "@vitest/ui": "4.1.5",
+        "@vitest/coverage-v8": "4.1.11",
+        "@vitest/ui": "4.1.11",
         "lockfile-lint": "5.0.0",
         "madge": "8.0.0",
         "oxfmt": "0.48.0",
@@ -64,7 +64,7 @@
         "tsdown": "0.22.0",
         "typescript": "5.9.3",
         "vite-tsconfig-paths": "6.1.1",
-        "vitest": "4.1.5"
+        "vitest": "4.1.11"
     },
     "release": {
         "extends": "@diia-inhouse/configs/dist/semantic-release/package",
