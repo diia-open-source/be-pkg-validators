@@ -37,7 +37,7 @@ export class AppValidator {
     }
 
     validate(params: unknown, schema: ValidationSchema, errorType?: ErrorType): boolean {
-        const res = this.validator.validate(params as Record<string, unknown>, schema) as true | ValidationErrorField[]
+        const res = this.validator.validate(params, schema) as true | ValidationErrorField[]
 
         if (res !== true) {
             throw new ValidationError(res, ErrorCode.ValidationError, errorType)

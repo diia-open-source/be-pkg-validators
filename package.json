@@ -1,8 +1,14 @@
 {
     "name": "@diia-inhouse/validators",
-    "version": "2.2.113",
-    "type": "module",
+    "version": "2.2.114",
     "description": "Data validators package",
+    "license": "SEE LICENCE IN LICENCE.md",
+    "author": "diia-team",
+    "repository": "https://github.com/diia-open-source/be-pkg-validators",
+    "files": [
+        "dist"
+    ],
+    "type": "module",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "exports": {
@@ -11,15 +17,6 @@
             "default": "./dist/index.js"
         },
         "./package.json": "./package.json"
-    },
-    "repository": "https://github.com/diia-open-source/be-pkg-validators",
-    "author": "Diia",
-    "license": "SEE LICENCE IN LICENCE.md",
-    "files": [
-        "dist"
-    ],
-    "engines": {
-        "node": ">=22"
     },
     "scripts": {
         "prebuild": "rimraf dist",
@@ -39,14 +36,10 @@
         "lodash.frompairs": "4.0.1",
         "luxon": "3.7.2"
     },
-    "peerDependencies": {
-        "@diia-inhouse/errors": ">=2.0.0",
-        "@diia-inhouse/types": ">=13.1.0"
-    },
     "devDependencies": {
         "@diia-inhouse/configs": "7.2.2",
         "@diia-inhouse/errors": "2.3.25",
-        "@diia-inhouse/oxc-config": "3.2.0",
+        "@diia-inhouse/oxc-config": "5.0.0",
         "@diia-inhouse/test": "8.3.40",
         "@diia-inhouse/types": "14.6.1",
         "@types/lodash.frompairs": "4.0.9",
@@ -56,9 +49,9 @@
         "@vitest/ui": "4.1.11",
         "lockfile-lint": "5.0.0",
         "madge": "8.0.0",
-        "oxfmt": "0.48.0",
-        "oxlint": "1.63.0",
-        "oxlint-tsgolint": "0.22.1",
+        "oxfmt": "0.72.0",
+        "oxlint": "1.87.0",
+        "oxlint-tsgolint": "7.0.2003",
         "rimraf": "6.1.3",
         "semantic-release": "25.0.3",
         "tsdown": "0.22.0",
@@ -66,14 +59,21 @@
         "vite-tsconfig-paths": "6.1.1",
         "vitest": "4.1.11"
     },
+    "peerDependencies": {
+        "@diia-inhouse/errors": ">=2.0.0",
+        "@diia-inhouse/types": ">=13.1.0"
+    },
+    "commitlint": {
+        "extends": "@diia-inhouse/configs/dist/commitlint"
+    },
     "release": {
         "extends": "@diia-inhouse/configs/dist/semantic-release/package",
         "branches": [
             "main"
         ]
     },
-    "commitlint": {
-        "extends": "@diia-inhouse/configs/dist/commitlint"
+    "engines": {
+        "node": ">=24"
     },
     "madge": {
         "tsConfig": "./tsconfig.json"
