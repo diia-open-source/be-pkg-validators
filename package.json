@@ -1,6 +1,6 @@
 {
     "name": "@diia-inhouse/validators",
-    "version": "2.2.131",
+    "version": "2.2.132",
     "description": "Data validators package",
     "license": "SEE LICENCE IN LICENCE.md",
     "author": "diia-team",
@@ -37,7 +37,7 @@
     },
     "devDependencies": {
         "@diia-inhouse/configs": "7.2.3",
-        "@diia-inhouse/errors": "2.3.37",
+        "@diia-inhouse/errors": "2.3.38",
         "@diia-inhouse/oxc-config": "6.1.1",
         "@diia-inhouse/test": "8.4.2",
         "@diia-inhouse/types": "14.12.0",
