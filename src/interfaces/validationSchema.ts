@@ -161,10 +161,10 @@ type Rule = string | boolean | ComplexRule | CommonRule | BasicRule<Exclude<Rule
 
 export type ValidationRule<T = null> = T extends null
     ? Rule
-    : T extends object
-      ? ObjectRule<T>
-      : T extends ArrayLike<infer U>
-        ? ArrayRule<U>
+    : T extends ArrayLike<infer U>
+      ? ArrayRule<U>
+      : T extends object
+        ? ObjectRule<T>
         : Rule
 
 export type ValidationSchema<T = null> = T extends null
